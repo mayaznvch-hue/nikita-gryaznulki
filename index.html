@@ -29,15 +29,36 @@ button:active{transform:translate(4px,4px);box-shadow:1px 1px 0 #3b2a14}
 footer{text-align:center;padding:24px;font-size:14px;opacity:.7;position:relative;z-index:1}
 .sock{position:fixed;font-size:40px;z-index:2;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.hero{display:block;margin:22px auto 0;width:min(320px,80vw);border:6px solid #fff;border-radius:22px;box-shadow:8px 8px 0 #8b5a2b;transform:rotate(-3deg)}
+.memes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.meme{position:relative;border:4px solid #3b2a14;border-radius:14px;overflow:hidden;background:#000;box-shadow:5px 5px 0 #8b5a2b}
+.meme img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+.meme p{position:absolute;left:6px;right:6px;text-align:center;color:#fff;font-family:Impact,"Arial Black",sans-serif;font-size:clamp(18px,4.5vw,24px);text-transform:uppercase;line-height:1.1;
+text-shadow:2px 2px 0 #000,-2px 2px 0 #000,2px -2px 0 #000,-2px -2px 0 #000,0 3px 0 #000}
+.meme .t{top:8px}.meme .b{bottom:10px}
+#memeGen .meme{max-width:340px;margin:14px auto 0}
 </style>
 </head>
 <body>
 <div class="stains" id="stains"></div>
 <header>
   <h1>НИКИТА КОШЕЛЕВ<br>ЛЮБЛЮ ГРЯЗНУЛЕК</h1>
+  <img class="hero" src="nikita.jpg" alt="Никита Кошелев">
   <p class="sub">Официальный фан-клуб крошек на диване, носков под кроватью и немытых кружек 🧦🍞☕</p>
 </header>
 <main>
+  <section>
+    <h2>😂 Мемы с Никитой</h2>
+    <div class="memes"><div class="meme"><img src="nikita.jpg" alt="мем"><p class="t">когда сказали</p><p class="b">«приберись в комнате»</p></div><div class="meme"><img src="nikita.jpg" alt="мем"><p class="t">пиво допил</p><p class="b">кружку мыть не буду</p></div><div class="meme"><img src="nikita.jpg" alt="мем"><p class="t">она: у тебя тут грязно</p><p class="b">я: это атмосфера</p></div><div class="meme"><img src="nikita.jpg" alt="мем"><p class="t">думаю о грязнульках</p><p class="b">третий час подряд</p></div><div class="meme"><img src="nikita.jpg" alt="мем"><p class="t">мама: где твои носки?</p><p class="b">я: они свободны</p></div><div class="meme"><img src="nikita.jpg" alt="мем"><p class="t">помыл одну тарелку</p><p class="b">устал как после смены</p></div></div>
+  </section>
+
+  <section style="text-align:center" id="memeGen">
+    <h2>🎰 Генератор мемов</h2>
+    <p style="font-size:18px">Жми — и Никита скажет новую мудрость</p><br>
+    <button id="gen">Новый мем</button>
+    <div class="meme"><img src="nikita.jpg" alt="мем"><p class="t" id="mt">жми кнопку</p><p class="b" id="mb">не бойся</p></div>
+  </section>
+
   <section>
     <h2>🧼 Кто такие грязнульки?</h2>
     <p style="font-size:18px;line-height:1.6">Грязнулька — это человек, у которого кружка с чаем стоит на столе с позапрошлого вторника и уже завела там свою цивилизацию. Никита Кошелев считает, что это не бардак, а <b>творческий беспорядок</b>. И он их любит. Всех. Искренне.</p>
@@ -100,6 +121,10 @@ document.getElementById('rain').onclick=()=>{for(let i=0;i<40;i++){setTimeout(()
 s.className='sock';s.textContent=['🧦','🍞','🍕','🥤','🧦'][Math.floor(Math.random()*5)];
 s.style.left=Math.random()*95+'vw';s.style.top='-60px';s.style.animationDuration=(2+Math.random()*2)+'s';
 document.body.appendChild(s);setTimeout(()=>s.remove(),4500)},i*80)}};
+const MT=["когда уборка в субботу","вижу пылесос","друзья: го в бар","нашёл носок","открыл холодильник","когда спросили про чистоту","посуда в раковине","мама приезжает через час","кто-то сказал «швабра»","понедельник"],
+MB=["а я грязнулек люблю","делаю вид, что не видел","я уже здесь","второго нет уже год","а там цивилизация","это творческий беспорядок","пусть отмокает до весны","паника","я не знаю таких слов","перенесу уборку на вторник"];
+document.getElementById('gen').onclick=()=>{document.getElementById('mt').textContent=MT[Math.floor(Math.random()*MT.length)];
+document.getElementById('mb').textContent=MB[Math.floor(Math.random()*MB.length)]};
 </script>
 </body>
 </html>
