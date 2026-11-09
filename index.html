@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>НИКИТА КОШЕЛЕВ ЛЮБЛЮ ГРЯЗНУЛЕК</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Comic Sans MS","Segoe UI",Arial,sans-serif;background:#fff6d6;color:#3b2a14;overflow-x:hidden}
+.stains span{position:fixed;border-radius:50%;background:#8b5a2b;opacity:.13;pointer-events:none;z-index:0}
+header{position:relative;z-index:1;text-align:center;padding:40px 16px 30px;background:repeating-linear-gradient(45deg,#ffd84d,#ffd84d 20px,#ffcf26 20px,#ffcf26 40px);border-bottom:6px dashed #8b5a2b}
+h1{font-size:clamp(30px,7vw,72px);line-height:1.05;text-shadow:4px 4px 0 #fff,7px 7px 0 #8b5a2b;animation:wob 2.5s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg) scale(1.03)}}
+.sub{margin-top:14px;font-size:clamp(16px,3vw,22px);font-weight:bold}
+main{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:24px 16px 60px}
+section{background:#fff;border:4px solid #3b2a14;border-radius:18px;padding:22px;margin:26px 0;box-shadow:8px 8px 0 #8b5a2b}
+h2{font-size:28px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.card{background:#fff6d6;border:3px dashed #8b5a2b;border-radius:14px;padding:14px;text-align:center;transition:.2s}
+.card:hover{transform:rotate(-3deg) scale(1.05)}
+.card b{font-size:46px;display:block}
+ol{padding-left:24px;font-size:18px;line-height:1.7}
+.meter{height:34px;border:3px solid #3b2a14;border-radius:20px;overflow:hidden;background:#eee;margin:10px 0}
+.meter div{height:100%;width:0;background:linear-gradient(90deg,#8b5a2b,#5a3a16);color:#fff;font-weight:bold;line-height:28px;padding-left:12px;transition:width 2s}
+button{font:inherit;font-size:20px;font-weight:bold;padding:14px 26px;border:4px solid #3b2a14;border-radius:40px;background:#ffd84d;cursor:pointer;box-shadow:5px 5px 0 #3b2a14}
+button:active{transform:translate(4px,4px);box-shadow:1px 1px 0 #3b2a14}
+#out{margin-top:16px;font-size:22px;min-height:30px;font-weight:bold}
+.quote{font-size:22px;font-style:italic;border-left:8px solid #ffd84d;padding-left:14px}
+footer{text-align:center;padding:24px;font-size:14px;opacity:.7;position:relative;z-index:1}
+.sock{position:fixed;font-size:40px;z-index:2;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+</style>
+</head>
+<body>
+<div class="stains" id="stains"></div>
+<header>
+  <h1>НИКИТА КОШЕЛЕВ<br>ЛЮБЛЮ ГРЯЗНУЛЕК</h1>
+  <p class="sub">Официальный фан-клуб крошек на диване, носков под кроватью и немытых кружек 🧦🍞☕</p>
+</header>
+<main>
+  <section>
+    <h2>🧼 Кто такие грязнульки?</h2>
+    <p style="font-size:18px;line-height:1.6">Грязнулька — это человек, у которого кружка с чаем стоит на столе с позапрошлого вторника и уже завела там свою цивилизацию. Никита Кошелев считает, что это не бардак, а <b>творческий беспорядок</b>. И он их любит. Всех. Искренне.</p>
+  </section>
+
+  <section>
+    <h2>🏆 Признаки настоящей грязнульки</h2>
+    <div class="grid">
+      <div class="card"><b>🧦</b>Один носок всегда где-то. Второй — где-то ещё</div>
+      <div class="card"><b>🍕</b>Пицца позавчерашняя? Значит, выдержанная</div>
+      <div class="card"><b>🪑</b>Стул для одежды — это отдельный шкаф</div>
+      <div class="card"><b>🍽️</b>«Пусть отмокает» — уже третий день</div>
+      <div class="card"><b>🛏️</b>Кровать заправлять? А зачем, вечером же опять ложиться</div>
+      <div class="card"><b>🥤</b>12 пустых бутылок — это коллекция</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📋 Кодекс Никиты Кошелева</h2>
+    <ol>
+      <li>Не суди человека по раковине.</li>
+      <li>Крошки в постели — к богатству (не проверено).</li>
+      <li>Пыль — это защитный слой мебели.</li>
+      <li>Если вещь лежит на полу, значит, ей там удобно.</li>
+      <li>Уборка раз в год — это традиция, а не лень.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>🔬 Тест: насколько ты грязнулька?</h2>
+    <p style="font-size:18px">Жми кнопку — научный прибор всё определит.</p><br>
+    <button id="test">Измерить грязнульность</button>
+    <div class="meter"><div id="bar"></div></div>
+    <div id="out"></div>
+  </section>
+
+  <section>
+    <h2>💬 Великие слова</h2>
+    <p class="quote">«Чистота — это хорошо. Но грязнульки — это навсегда.»<br><br>— Никита Кошелев, философ, ценитель носков</p>
+  </section>
+
+  <section style="text-align:center">
+    <h2>🧦 Носкопад</h2>
+    <button id="rain">Устроить носкопад</button>
+  </section>
+</main>
+<footer>Сайт сделан с любовью и чуть-чуть с крошками. Все совпадения с реальными носками случайны 😄</footer>
+<script>
+const st=document.getElementById('stains');
+for(let i=0;i<14;i++){const s=document.createElement('span');const z=40+Math.random()*120;
+s.style.cssText=`width:${z}px;height:${z*0.8}px;left:${Math.random()*100}vw;top:${Math.random()*100}vh`;st.appendChild(s)}
+const res=[[0,20,'Ты подозрительно чистый. Никита насторожен 🤨'],[20,50,'Начинающая грязнулька. Есть потенциал 🍞'],
+[50,80,'Крепкий середняк: стул с одеждой у тебя точно есть 🪑'],[80,96,'Профессиональная грязнулька! Никита влюблён 😍'],
+[96,101,'ЛЕГЕНДА. Твою кружку пора заносить в музей 🏛️☕']];
+document.getElementById('test').onclick=()=>{const v=Math.floor(Math.random()*101),b=document.getElementById('bar');
+b.style.width='0';document.getElementById('out').textContent='Измеряю... 🧪';
+setTimeout(()=>{b.style.width=Math.max(v,8)+'%';b.textContent=v+'%'},100);
+setTimeout(()=>{document.getElementById('out').textContent=res.find(r=>v>=r[0]&&v<r[1])[2]},2100)};
+document.getElementById('rain').onclick=()=>{for(let i=0;i<40;i++){setTimeout(()=>{const s=document.createElement('div');
+s.className='sock';s.textContent=['🧦','🍞','🍕','🥤','🧦'][Math.floor(Math.random()*5)];
+s.style.left=Math.random()*95+'vw';s.style.top='-60px';s.style.animationDuration=(2+Math.random()*2)+'s';
+document.body.appendChild(s);setTimeout(()=>s.remove(),4500)},i*80)}};
+</script>
+</body>
+</html>
